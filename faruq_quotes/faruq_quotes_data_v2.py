@@ -2,15 +2,22 @@
 Used with faruq_quotes_v2.py
 '''
 
+#"<blockquote><font style=font-size:23px; line-height:180%>Hi. It's <font style=color:black;background:white;font-size:33px; line-height:180>Faruq</font>, your friendly <font style=color:blue;background:white;font-size:33px; line-height:180>weatherman</font> here, and I'd just like to say get inside <font style=color:yellow;background:black;font-size:33px; line-height:180>yo damn house!</font> Here comes a <font style=color:red;background:white;font-size:33px; line-height:180>Monsoon!</font></font></blockquote>",
+
 faruq_quotes_list = [
-"Hi. It's Faruq, your friendly weatherman here, and I'd just like to say get inside yo damn house! here comes a <mark style=background:white>Monsoon!</mark>",
-"NASA may be heading to Mars, but this robot’s headed straight for Uranus!",
-"It'll leave you crying fowl and stick you with the bill. Release the quack-en! It's <mark style=background:yellow>Duck!</mark>",
-"From Seoul, South Korea, the movie Blade is rated 7.1 on IMDB, but this version is a perfect 10. Give it up for BLADE!",
-"From Nevada, the bot with hometown advantage. He'll outclass you in every way. He's got swag you can't manage. He's the king, you're the impersonator. He's blackjack, you're keno. He's the Bellagio, you're Circus Circus. He's Vegas, you're Reno. It's Jackpot!",
-"This brutal Bostonian machine is frostier than a Viking queen, and when you're home wondering what went wrong, you'll always hear its little song. Dun dun-dun-dun-dun-dun-dun! Valkyrie!",
-"Think your in Jeopardy, Oh no it's time to play wheel of misfortune, it's Nightmare!",
-"Every breath you take, every move you make he'll be wrecking you, it's Stinger",
-"He's so mean his opponents scream, please don't blaze me bro!, It's Saw Blaze",
-"It's robot fighting time!"
+
+# Champions Discovery - finish formatting and test then onto the next
+"<blockquote><font style=font-size:23px; line-height:180%>It's <font style=color:blue;background:white;font-size:33px; line-height:180>robot fightin'</font> time!</font></blockquote>",
+"He's so mean his opponents scream, Please, don't blaze me, bro! It's SAWBLAZE!",
+"It'll make you a bigger crybaby than Tom Brady! Aw come on, you think I care if Boston fans hate me? It's TANTRUM!",
+"This bot's builder is one of the youngest in the bunch. He's so young he packs a brown bag lunch. He's new school, that is true, but he knows his bot will kill you... END GAME!",
+"This vicious beast doesn't even think it's in a competition! He thinks it's a buffet line. Makes some noise for BITE FORCE!",
+
+# from: https://battlebots.fandom.com/wiki/Bite_Force#Faruq_Tauheed_Introductions
+# Champions ABC
+# Champions Comedy Central
+# Champions Battlebots IQ
+# More...
+# I can also do more for each bot as there are lots on the battlebots wiki pages
+
 ]
