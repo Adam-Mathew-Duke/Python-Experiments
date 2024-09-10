@@ -1,12 +1,12 @@
 '''
 Name:           Main.py
-Aim:            functionality without re-factoring
-Description:    a prototype text adventure game
+Description:    Classic text adventure game
+Volume:         1
 '''
 
 game_state = "INTRODUCTION_ROOM"
 
-def process_game_state(game_state,key_state):
+def process_game_state(game_state,key_state,pick_state):
 
     while game_state != "EXIT":
 
@@ -119,30 +119,124 @@ def process_game_state(game_state,key_state):
                 print("Checking the brick work reveals a hook lockpick and a tension wrench.")
                 game_state = "CHECK_BRICK_WORK"
             elif (menu_choice == '3'):
-                print("You try to open the treasure check lid but it's locked tight.")
-                #game_state = "CHECK_CHEST"
+                print("You try to force open the check but the lid is locked")
+                game_state = "CHECK_CHEST"
             elif (menu_choice == '4'):
                 print("You turn around and walk back into the room.")
                 game_state = "INTRODUCTION_ROOM"
 
         elif game_state == "CHECK_BRICK_WORK":
-            print("You find a hook lockpick and a tension wrench hidden behind a loose brick")
-            game_state = "HALLWAY"
+
+            # print context
+            print("Stepping closer to the bricks you spot some lockpick tools hidden in the wall.")
+
+            # print menu
+            print("1. Examine Lockpick tools")
+            print("2. Take Lockpick tools")
+            print("3. Do nothing")
+
+            # grab the menu choice
+            menu_choice = input("Your choice: ")
+
+            print("\n")
+
+            # process the menu choice and display the
+            # appropiate flavor text
+            if (menu_choice == '1'):
+                print("There is a hook pick and a tension wrench")
+                game_state = "CHECK_BRICK_WORK"
+            elif (menu_choice == '2'):
+                print("You put the lockpick and tension wrench into your breast pocket")
+                pick_state = True
+                game_state = "HALLWAY"
+            elif (menu_choice == '3'):
+                print("You step away from the brick work")   
+                game_state = "HALLWAY"
 
         elif game_state == "CHECK_CHEST":
-            print("You cannot open it")
-            game_state = "HALLWAY"
+
+            # print menu
+
+            if not pick_state:
+
+                print("1. Examine Chest")
+                print("2. Use Golden Key")
+                print("3. Do nothing")
+
+                # grab the menu choice
+                menu_choice = input("Your choice: ")
+
+                print("\n")
+
+                # process the menu choice and display the
+                # appropiate flavor text
+                if (menu_choice == '1'):
+                    print("The large chest has an orate design")
+                    game_state = "CHECK_CHEST"
+                elif (menu_choice == '2'):
+                    print("You try to open the check using the Golden Key")
+                    print("The key does not fit in the lock")
+                    game_state = "HALLWAY"
+                elif (menu_choice == '3'):
+                    print("You step away from the chest")   
+                    game_state = "HALLWAY"
+
+            else:
+
+                print("1. Examine Chest")
+                print("2. Use Golden Key")
+                print("3. Use lockpick")
+                print("4. Do nothing")
+
+                # grab the menu choice
+                menu_choice = input("Your choice: ")
+
+                print("\n")
+
+                # process the menu choice and display the
+                # appropiate flavor text
+                if (menu_choice == '1'):
+                    print("The large chest has an orate design")
+                    game_state = "CHECK_CHEST"
+                elif (menu_choice == '2'):
+                    print("You try to open the check using the Golden Key")
+                    print("The key does not fit in the lock")
+                    game_state = "HALLWAY"
+                elif (menu_choice == '3'):
+                    print("You use the lockpick to open the chest")
+                    print("There is a treasure map inside")
+                    print("You take the map and put it in your backpack")
+                    print("To be continued! .....")   
+                    game_state = "EXIT"
+                elif (menu_choice == '4'):
+                    print("You step away from the chest")   
+                    game_state = "HALLWAY"
+
         print("\n")
 
-process_game_state(game_state,True)
+'''
+Test:
+Start in HALLWAY
+Has Golden Key
+Has Lockpick
+'''
+process_game_state("HALLWAY",True,True)
 print("EXIT")
 
 # end of code
 
 '''
-To do later afer basic functionality:
-re-factor code into classes and multiple files
-add more items and information to the game
-write longer descriptions with a typewritter effect
-Add menu items as you learn more about your environment
+Ideas:
+    Test and add to basic functionality
+    Re-factor the code into classes, data types and multiple files
+    Add more items and information to the text adventure game
+    Add a type writer effect to help with reading
+    Add menu items as you explore the environment
+    Lockpick can be made up of different seperate items
+    Including hook, ball, diamond, tension wrench, rake and lube
+    Add a carpet and some pictures and a window on the wall.
+    Once everything is working how the game works with random item
+    placement. Maybe not every item is in every run of the game?
+    Or maybe there are different items on each playthrough?
+    Or maybe you get a hard run or an easy run?
 '''
