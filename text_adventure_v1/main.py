@@ -4,7 +4,27 @@ Description:    Classic text adventure game
 Volume:         1
 '''
 
-game_state = "INTRODUCTION_ROOM"
+'''
+Introduction Room
+Has a basic level of functionality
+
+Hallway
+Need to test the basic functionality
+
+Ideas
+Re-factor the code.    
+Build on the foundation
+Add more items and information to the game
+Add a type writer effect to the text
+Add new menu items as you explore
+Lockpick multiple items: hook, ball, diamond, tension
+wrench, rake, lube
+Add a carpet and some pictures and a window on the wall
+Explore random item placement for each run of the game
+Explore different items during each playthrough
+'''
+
+import os
 
 def process_game_state(game_state,key_state,pick_state):
 
@@ -12,45 +32,59 @@ def process_game_state(game_state,key_state,pick_state):
 
         if game_state == "INTRODUCTION_ROOM":
 
+            os.system('cls')
+
             # print context
-            print("You are in a small, dimly lit room.")
+            print("\nYou are in a small, dimly lit room.\n")
 
             # print menu
             print("1. Look around the room")
             print("2. Check the desk drawer")
-            print("3. Try to open the door")
+            print("3. Check the door")
             print("4. Do nothing")
 
             # grab the menu choice
-            menu_choice = input("Your choice: ")
+            menu_choice = input("\nYour choice: ")
 
-            print("\n")
+            print('\n')
 
             # process the menu choice and display the
             # appropiate flavor text
             if (menu_choice == '1'):
-                print("Looking around reveals a solid door in front of you and a wooden desk with a draw in the corner.")
+                print("There is a solid door in front of you.")
+                print("A writing table next to the wall on the right of you.")
+                print("The desk has a single draw.")
             elif (menu_choice == '2'):
-                print("Checking the desk drawer reveals a hidden key.")
+                print("You approach the writing desk.")
                 game_state = "CHECK_DRAW"
             elif (menu_choice == '3'):
-                print("You try to open the door")
+                print("You approach the door.")
                 game_state = "CHECK_DOOR"
             elif (menu_choice == '4'):
                 print("You do nothing and wonder why you are here.")
 
+            print('\n')
+            input("Press Any Key...")
+            os.system('cls')
+
         elif game_state == "CHECK_DRAW":
 
             # print context
-            print("There is a golden key in the draw it has an orate design.")
+            print("Checking the desk drawer reveals a hidden key.")
+            print("The key is golden with an orate design.")
+
+            print('\n')
 
             # print menu
             print("1. Take key")
-            print("2. Do nothing")
+            print("2. Return to the room")
+
+            print('\n')
 
             # grab the menu choice
             menu_choice = input("Your choice: ")
-            print("\n")
+
+            print('\n')
 
             if (menu_choice == '1'):
                 print("You take the key and put it in your pocket.")
@@ -59,20 +93,41 @@ def process_game_state(game_state,key_state,pick_state):
                 
             elif (menu_choice == '2'):
                 print("You step away from the desk draw...")
-            
+
             # return to the introduction room
             game_state = "INTRODUCTION_ROOM"
+
+            print('\n')
+            input("Press Any Key...")
+            os.system('cls')
 
         elif game_state == "CHECK_DOOR":
 
             # print context
-            print("The door is locked. You need a key to open it.")
+            print("The door has an ornate design there is a key hole just below the handle.")
+            print('\n')
 
             if not key_state:
 
-                print("You step away from the door draw.")
-                game_state = "INTRODUCTION_ROOM"
+                # print menu
+                print("1. Try handle")
+                print("2. Return to the room")
+
+                # grab the menu choice
+                print('\n')
+                menu_choice = input("Your choice: ")
                 print("\n")
+        
+                if (menu_choice == '1'):
+                    print("You try the handle but the door does not budge. Maybe you need a key.")
+                    game_state = "CHECK_DOOR"
+                elif (menu_choice == '2'):
+                    print("You step away from the door.")
+                    game_state = "INTRODUCTION_ROOM"
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
 
             else:
 
@@ -81,6 +136,7 @@ def process_game_state(game_state,key_state,pick_state):
                 print("2. Do nothing")
 
                 # grab the menu choice
+                print('\n')
                 menu_choice = input("Your choice: ")
                 print("\n")
         
@@ -93,7 +149,10 @@ def process_game_state(game_state,key_state,pick_state):
                     # return to the introduction room
                     game_state = "INTRODUCTION_ROOM"
 
-        
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
         elif game_state == "HALLWAY":
 
             # print context
@@ -214,29 +273,7 @@ def process_game_state(game_state,key_state,pick_state):
 
         print("\n")
 
-'''
-Test:
-Start in HALLWAY
-Has Golden Key
-Has Lockpick
-'''
-process_game_state("HALLWAY",True,True)
+process_game_state("INTRODUCTION_ROOM",False,False)
 print("EXIT")
 
 # end of code
-
-'''
-Ideas:
-    Test and add to basic functionality
-    Re-factor the code into classes, data types and multiple files
-    Add more items and information to the text adventure game
-    Add a type writer effect to help with reading
-    Add menu items as you explore the environment
-    Lockpick can be made up of different seperate items
-    Including hook, ball, diamond, tension wrench, rake and lube
-    Add a carpet and some pictures and a window on the wall.
-    Once everything is working how the game works with random item
-    placement. Maybe not every item is in every run of the game?
-    Or maybe there are different items on each playthrough?
-    Or maybe you get a hard run or an easy run?
-'''
