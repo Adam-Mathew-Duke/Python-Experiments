@@ -9,7 +9,7 @@ Introduction Room
 Has a basic level of functionality
 
 Hallway
-Need to test the basic functionality
+Work on treasure check section then test the Hallway
 
 Ideas
 Re-factor the code.    
@@ -155,14 +155,22 @@ def process_game_state(game_state,key_state,pick_state):
 
         elif game_state == "HALLWAY":
 
+            os.system('cls')
+
+            print("\n")
+
             # print context
             print("You step into a long narrow hallway with a treasure chest at the end.")
+
+            print('\n')
 
             # print menu
             print("1. Look around the hallway")
             print("2. Investigate the glint of metal in the brick work")
-            print("3. Try to open the chest")
+            print("3. Examine Treasure Chest")
             print("4. Go back to the room")
+
+            print('\n')
 
             # grab the menu choice
             menu_choice = input("Your choice: ")
@@ -173,26 +181,52 @@ def process_game_state(game_state,key_state,pick_state):
             # appropiate flavor text
             if (menu_choice == '1'):
                 print("Looking around the hallway reavels a glint of metal in the brick work.")
+                
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 game_state = "HALLWAY"
             elif (menu_choice == '2'):
                 print("Checking the brick work reveals a hook lockpick and a tension wrench.")
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 game_state = "CHECK_BRICK_WORK"
             elif (menu_choice == '3'):
-                print("You try to force open the check but the lid is locked")
+                print("You step closer to the treasure chest.")
+     
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 game_state = "CHECK_CHEST"
             elif (menu_choice == '4'):
                 print("You turn around and walk back into the room.")
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 game_state = "INTRODUCTION_ROOM"
 
         elif game_state == "CHECK_BRICK_WORK":
 
+            print('\n')
+
             # print context
             print("Stepping closer to the bricks you spot some lockpick tools hidden in the wall.")
+
+            print('\n')
 
             # print menu
             print("1. Examine Lockpick tools")
             print("2. Take Lockpick tools")
             print("3. Do nothing")
+
+            print('\n')
 
             # grab the menu choice
             menu_choice = input("Your choice: ")
@@ -203,24 +237,43 @@ def process_game_state(game_state,key_state,pick_state):
             # appropiate flavor text
             if (menu_choice == '1'):
                 print("There is a hook pick and a tension wrench")
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 game_state = "CHECK_BRICK_WORK"
             elif (menu_choice == '2'):
                 print("You put the lockpick and tension wrench into your breast pocket")
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
+
                 pick_state = True
                 game_state = "HALLWAY"
             elif (menu_choice == '3'):
+
                 print("You step away from the brick work")   
                 game_state = "HALLWAY"
+
+                print('\n')
+                input("Press Any Key...")
+                os.system('cls')
 
         elif game_state == "CHECK_CHEST":
 
             # print menu
+            print("You crouch down in front of the treasure chest.")
+            print('\n')
 
             if not pick_state:
 
                 print("1. Examine Chest")
                 print("2. Use Golden Key")
                 print("3. Do nothing")
+
+                print('\n')
 
                 # grab the menu choice
                 menu_choice = input("Your choice: ")
@@ -273,7 +326,7 @@ def process_game_state(game_state,key_state,pick_state):
 
         print("\n")
 
-process_game_state("INTRODUCTION_ROOM",False,False)
+process_game_state("HALLWAY",True,False)
 print("EXIT")
 
 # end of code
