@@ -5,11 +5,15 @@ Volume:         1
 '''
 
 '''
-Introduction Room
-Has a basic level of functionality
 
-Hallway
-Work on treasure check section then test the Hallway
+Next:
+
+Expand on the lock pick mini game to make it more fun
+and interesting.
+
+Add some more items and descriptions to my game.
+
+Re-factor the code
 
 Ideas
 Re-factor the code.    
@@ -25,6 +29,15 @@ Explore different items during each playthrough
 '''
 
 import os
+import random
+
+pick_chance = 80
+
+# hook, snowman, rake
+pick_type = "HOOK" # hook, snowman, rake
+lock_lube = False
+open_lock = False
+
 
 def process_game_state(game_state,key_state,pick_state):
 
@@ -72,6 +85,7 @@ def process_game_state(game_state,key_state,pick_state):
             # print context
             print("Checking the desk drawer reveals a hidden key.")
             print("The key is golden with an orate design.")
+            print("It's designed for Doors.")
 
             print('\n')
 
@@ -141,7 +155,7 @@ def process_game_state(game_state,key_state,pick_state):
                 print("\n")
         
                 if (menu_choice == '1'):
-                    print("You unlock the door using the golden key")
+                    print("You unlock the door using the golden Door key")
                     print("You enter the hallway")
                     game_state = "HALLWAY"
                 elif (menu_choice == '2'):
@@ -181,6 +195,7 @@ def process_game_state(game_state,key_state,pick_state):
             # appropiate flavor text
             if (menu_choice == '1'):
                 print("Looking around the hallway reavels a glint of metal in the brick work.")
+                print("There is a large ornate treasure check at the very end of the hallway.")
                 
                 print('\n')
                 input("Press Any Key...")
@@ -237,6 +252,8 @@ def process_game_state(game_state,key_state,pick_state):
             # appropiate flavor text
             if (menu_choice == '1'):
                 print("There is a hook pick and a tension wrench")
+                print("Maybe I can open the treasure chest with this!")
+                print("With these basic tools I'll need to be lucky!")
 
                 print('\n')
                 input("Press Any Key...")
@@ -244,7 +261,9 @@ def process_game_state(game_state,key_state,pick_state):
 
                 game_state = "CHECK_BRICK_WORK"
             elif (menu_choice == '2'):
+  
                 print("You put the lockpick and tension wrench into your breast pocket")
+                print("I have some lock picking experience I feel like I have a chance")
 
                 print('\n')
                 input("Press Any Key...")
@@ -252,14 +271,16 @@ def process_game_state(game_state,key_state,pick_state):
 
                 pick_state = True
                 game_state = "HALLWAY"
+
             elif (menu_choice == '3'):
 
                 print("You step away from the brick work")   
-                game_state = "HALLWAY"
 
                 print('\n')
                 input("Press Any Key...")
                 os.system('cls')
+
+                game_state = "HALLWAY"
 
         elif game_state == "CHECK_CHEST":
 
@@ -270,7 +291,7 @@ def process_game_state(game_state,key_state,pick_state):
             if not pick_state:
 
                 print("1. Examine Chest")
-                print("2. Use Golden Key")
+                print("2. Use Golden Door Key")
                 print("3. Do nothing")
 
                 print('\n')
@@ -284,20 +305,40 @@ def process_game_state(game_state,key_state,pick_state):
                 # appropiate flavor text
                 if (menu_choice == '1'):
                     print("The large chest has an orate design")
+                    print("The is a keyhole but no sign of the key anywhere")
+                    print("Maybe there is a way to open the chest without using the original key")
+
+                    print('\n')
+                    input("Press Any Key...")
+                    os.system('cls')
+
+
                     game_state = "CHECK_CHEST"
                 elif (menu_choice == '2'):
-                    print("You try to open the check using the Golden Key")
+                    print("You try to open the check using the Golden Door Key")
                     print("The key does not fit in the lock")
+                    print("The key is designed to use in doors not chests.")
+
+                    print('\n')
+                    input("Press Any Key...")
+                    os.system('cls')
+
+
                     game_state = "HALLWAY"
                 elif (menu_choice == '3'):
-                    print("You step away from the chest")   
+                    print("You step away from the chest")
+
+                    print('\n')
+                    input("Press Any Key...")
+                    os.system('cls')
+
                     game_state = "HALLWAY"
 
             else:
 
                 print("1. Examine Chest")
-                print("2. Use Golden Key")
-                print("3. Use lockpick")
+                print("2. Use Golden Door Key")
+                print("3. Use lockpick (hook type and tension wrench)")
                 print("4. Do nothing")
 
                 # grab the menu choice
@@ -311,17 +352,50 @@ def process_game_state(game_state,key_state,pick_state):
                     print("The large chest has an orate design")
                     game_state = "CHECK_CHEST"
                 elif (menu_choice == '2'):
-                    print("You try to open the check using the Golden Key")
+                    print("You try to open the check using the Golden Door Key")
                     print("The key does not fit in the lock")
                     game_state = "HALLWAY"
                 elif (menu_choice == '3'):
-                    print("You use the lockpick to open the chest")
-                    print("There is a treasure map inside")
-                    print("You take the map and put it in your backpack")
-                    print("To be continued! .....")   
-                    game_state = "EXIT"
+
+                    '''
+                    let's make a little mini game of chance here...
+                    '''
+
+                    if (pick_type == "HOOK"):
+                        pick_chance = 1
+
+                    # 50% chance of picking the lock
+                    pick_attempt = random.randint(1, 2)
+
+                    if (pick_attempt == pick_chance):
+                        open_lock = True
+                    else:
+                        open_lock = False
+
+                    if open_lock == True:
+                        print("You use the lockpick to open the chest")
+                        print("There is a treasure map inside")
+                        print("You take the map and put it in your backpack")
+                        print("To be continued! .....")   
+                        game_state = "EXIT"
+                    elif open_lock == False:
+                        print("You did not pick the lock but you are close")
+                        print("You adjust your grip and get ready to try again")
+
+                        print('\n')
+                        input("Press Any Key...")
+                        os.system('cls')
+
+                        game_state = "CHECK_CHEST"
+
+
                 elif (menu_choice == '4'):
                     print("You step away from the chest")   
+                    
+                    print('\n')
+                    input("Press Any Key...")
+                    os.system('cls')
+
                     game_state = "HALLWAY"
 
         print("\n")
