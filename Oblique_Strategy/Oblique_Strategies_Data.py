@@ -23,7 +23,7 @@ quotes_list = [
 "Courage!",
 "Cut a vital connection.",
 "Decorate, decorate.",
-"Define an area as `safe' and use it as an anchor.",
+"Define an area as 'safe' and use it as an anchor.",
 "Destroy -nothing -the most important thing.",
 "Discard an axiom.",
 "Disconnect from desire.",
