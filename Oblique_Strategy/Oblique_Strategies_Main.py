@@ -1,6 +1,5 @@
 import streamlit as st
 import random
-from streamlit_extras.buy_me_a_coffee import button
 from Oblique_Strategies_Data import oblique_list
 from Oblique_Strategies_Data import music_list
 from Oblique_Strategies_Data import drawing_list
@@ -39,5 +38,3 @@ with col2:
 
 with col3:
     st.button("Drawing Strategy", on_click=button_function, args=(3, "Drawing Strategy"))
-    
-button(username="adamd", floating=True, width=221)
