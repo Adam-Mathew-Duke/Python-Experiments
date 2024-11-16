@@ -40,4 +40,4 @@ with col2:
 with col3:
     st.button("Drawing Strategy", on_click=button_function, args=(3, "Drawing Strategy"))
     
-button(username="adamd", floating=False, width=221)
+button(username="adamd", floating=True, width=221)
