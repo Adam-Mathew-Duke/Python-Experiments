@@ -41,4 +41,4 @@ with col3:
 
 st.divider()
 st.page_link("https://en.wikipedia.org/wiki/Oblique_Strategies", label="Learn about the Oblique Strategies on Wikipedia!", icon="🌐")
-st.page_link("https://buymeacoffee.com/adamd", label="Buy me a coffee! If you enjoy my apps", icon="☕")
+st.page_link("https://buymeacoffee.com/adamd", label="Buy me a coffee!", icon="☕")
