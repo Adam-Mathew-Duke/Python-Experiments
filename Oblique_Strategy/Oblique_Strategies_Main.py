@@ -26,7 +26,7 @@ def button_function(a, b):
     elif a == 3:
         st.session_state["current_quote"] = random.choice(drawing_list)
 
-st.write('')
+st.divider()
 
 col1, col2, col3 = st.columns(3)
 
@@ -40,5 +40,4 @@ with col3:
     st.button("Drawing Strategy", on_click=button_function, args=(3, "Drawing Strategy"))
 
 st.divider()
-
 st.page_link("https://buymeacoffee.com/adamd", label="Buy Me A Coffee!", icon="☕")
