@@ -40,4 +40,5 @@ with col3:
     st.button("Drawing Strategy", on_click=button_function, args=(3, "Drawing Strategy"))
 
 st.divider()
+st.page_link("https://en.wikipedia.org/wiki/Oblique_Strategies", label="Learn about the Oblique Strategies on Wikipedia!", icon="🌐")
 st.page_link("https://buymeacoffee.com/adamd", label="Buy Me A Coffee!", icon="☕")
