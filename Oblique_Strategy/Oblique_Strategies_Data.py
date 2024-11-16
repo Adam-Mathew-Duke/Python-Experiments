@@ -103,7 +103,7 @@ oblique_list = [
 "Use an unacceptable color",
 "Use fewer notes",
 "Use filters",
-"Use `unqualified' people",
+"Use ""unqualified"" people",
 "Water",
 "What are you really thinking about just now? Incorporate",
 "What is the reality of the situation?",
