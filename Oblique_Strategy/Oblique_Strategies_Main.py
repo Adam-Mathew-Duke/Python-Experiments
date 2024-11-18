@@ -32,7 +32,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.button("Oblique Strategy", on_click=button_function, args=(1, "Oblique Strategy"))
-    st.write("Official)
+    st.write("Official")
 
 with col2:
     st.button("Music Strategy", on_click=button_function, args=(2, "Music Strategy"))
