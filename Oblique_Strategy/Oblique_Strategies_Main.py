@@ -31,15 +31,11 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.button("Oblique Strategy", on_click=button_function, args=(1, "Oblique Strategy"))
-    st.write("Official")
-
+    st.button("Oblique Strategy (official)", on_click=button_function, args=(1, "Oblique Strategy"))
 with col2:
-    st.button("Music Strategy", on_click=button_function, args=(2, "Music Strategy"))
-    st.write("Unofficial")
+    st.button("Music Strategy (Unofficial)", on_click=button_function, args=(2, "Music Strategy"))
 with col3:
-    st.button("Drawing Strategy", on_click=button_function, args=(3, "Drawing Strategy"))
-    st.write("Unofficial")
+    st.button("Drawing Strategy (Unofficial)", on_click=button_function, args=(3, "Drawing Strategy"))
 st.divider()
 st.page_link("https://en.wikipedia.org/wiki/Oblique_Strategies", label="Learn about the Oblique Strategies on Wikipedia!", icon="🌐")
 st.page_link("https://buymeacoffee.com/adamd", label="Buy me a coffee!", icon="☕")
