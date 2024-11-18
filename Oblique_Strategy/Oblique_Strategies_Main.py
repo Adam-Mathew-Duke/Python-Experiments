@@ -31,7 +31,7 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.button("Oblique Strategy (official)", on_click=button_function, args=(1, "Oblique Strategy"))
+    st.button("Oblique Strategy (Official)", on_click=button_function, args=(1, "Oblique Strategy"))
 with col2:
     st.button("Music Strategy (Unofficial)", on_click=button_function, args=(2, "Music Strategy"))
 with col3:
